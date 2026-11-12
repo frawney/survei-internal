@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Survei Kepuasan Masyarakat BLSDM Komdigi Manado</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234338CA'/%3E%3Crect x='14' y='12' width='36' height='45' rx='6' fill='white'/%3E%3Crect x='22' y='6' width='20' height='12' rx='4' fill='%23FFC24D'/%3E%3Cpath d='M22 31l5 5 10-10' fill='none' stroke='%234338CA' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22 48h20' stroke='%234338CA' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#4338CA">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--p:#4338CA;--pd:#3730A3;--ac:#FFC24D;--acd:#E0A12C;--bg:#F4F5FB;--tx:#14183A;--mu:#5A6085;--ln:#E1E4F2;--er:#B91C1C}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.5;-webkit-text-size-adjust:100%}
+.mu{color:var(--mu);font-size:13px}
+
+/* Header */
+.hd{position:relative;overflow:hidden;color:#fff;text-align:center;padding:14px 16px 92px;background:radial-gradient(circle at 100% 0,#5B52E0 0,transparent 55%),#4338CA;border-radius:0 0 50%/0 0 44px 44px}
+.brand{display:inline-flex;align-items:center;min-height:52px;padding:6px 18px;background:#fff;color:var(--pd);border-radius:14px;box-shadow:0 6px 20px rgba(10,25,80,.25);font-weight:700;font-size:15px}
+.brand img{height:48px;width:auto;max-width:240px;display:block}
+.hd h1{margin:22px 0 6px;font-size:30px;line-height:1.2;letter-spacing:-.01em}
+.hd p{margin:0 auto;max-width:460px;color:#E0E2FF;font-size:15px}
+.seg{display:flex;gap:6px;max-width:320px;margin:18px auto 0}
+.seg i{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.3);transition:background .25s}
+.seg i.on{background:var(--ac)}
+.hd::before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(255,194,77,.16);right:-34px;top:-34px}
+.hd::after{content:"";position:absolute;width:96px;height:96px;border:14px solid rgba(255,255,255,.09);border-radius:50%;left:-28px;bottom:40px}
+.hd>*{position:relative;z-index:1}
+.hd.done{padding-bottom:70px}
+.hd.done h1,.hd.done p,.hd.done .seg{display:none}
+
+.wrap{max-width:640px;margin:-52px auto 0;padding:0 16px 40px;position:relative}
+.card{background:#fff;border:1px solid var(--ln);border-radius:24px;padding:22px;box-shadow:0 14px 34px rgba(67,56,202,.14)}
+
+/* Intro */
+.nt{margin:14px 0 0;font-size:13px;text-align:center;color:var(--mu)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 24px;border:0;border-radius:99px;background:var(--ac);color:var(--tx);font:700 16px Inter,sans-serif;cursor:pointer;box-shadow:0 4px 0 var(--acd);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--acd)}
+.btn:disabled{opacity:.7;cursor:wait}
+.btn.gh{background:#fff;color:var(--pd);box-shadow:none;border:1px solid #D5D8F0;font-weight:600}
+.btn.gh:active{transform:none;background:#F4F5FB}
+#start{width:100%;max-width:360px;margin:0 auto;display:flex}
+:focus-visible{outline:3px solid #A5B4FC;outline-offset:2px}
+
+/* Step progress */
+.sp{display:flex;align-items:center;gap:12px;margin-bottom:4px;font-size:13px;font-weight:600;color:var(--mu)}
+.sp span{white-space:nowrap}
+.bar{flex:1;height:6px;background:#E1E4F2;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--p);border-radius:99px;transition:width .3s}
+
+/* Questions */
+.st{counter-reset:q}
+.q{counter-increment:q;padding:20px 0;border-top:1px solid var(--ln);scroll-margin-top:16px}
+.q:first-child{border-top:0}
+.ql{display:flex;gap:10px;font-weight:600;font-size:15px;margin-bottom:12px}
+.ql::before{content:counter(q);flex:none;width:24px;height:24px;border-radius:50%;background:#EEF0FF;color:var(--p);font-size:12px;font-weight:700;display:grid;place-items:center;margin-top:1px}
+.q.ans .ql::before{content:"\2713";background:var(--p);color:#fff}
+.ql em{font-weight:400;color:var(--mu);font-style:normal}
+.hp{margin:-6px 0 12px 34px;color:var(--mu);font-size:13px}
+.fld{width:100%;min-height:48px;padding:10px 14px;border:1px solid #D5D8F0;border-radius:12px;font:500 16px Inter,sans-serif;color:var(--tx);background:#fff}
+.fld:focus{outline:3px solid #C7CCFF;border-color:var(--p)}
+.oth{margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip,.pill{position:relative;display:block}
+.chip input,.pill input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:46px;padding:8px 16px;border:1px solid #D5D8F0;border-radius:14px;background:#fff;font-size:14px;font-weight:500;transition:background .15s,border-color .15s}
+.chip:hover span,.pill:hover span{border-color:var(--p)}
+.chip input:checked+span{background:#EEF0FF;border-color:var(--p);box-shadow:inset 0 0 0 1px var(--p);font-weight:600}
+.chip.ex{flex-basis:100%;margin-bottom:4px}
+.chip.ex span{justify-content:center;border:2px dashed #0F766E;background:#ECFDF8;color:#0F5F57;font-weight:700}
+.chip.ex input:checked+span{background:#0F766E;color:#fff;box-shadow:none}
+
+/* Rating */
+.sc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pill span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:74px;padding:8px 4px;border:1px solid #D5D8F0;border-radius:16px;background:#fff;text-align:center;transition:background .15s,border-color .15s,transform .15s}
+.pill b{font-size:20px;color:var(--c)}
+.pill small{font-size:12px;line-height:1.2;color:var(--mu)}
+.pill.p1{--c:#DC2626;--t:#FEE9E9}.pill.p2{--c:#D97706;--t:#FFF1DC}.pill.p3{--c:#16A34A;--t:#E3F6E8}.pill.p4{--c:#0F766E;--t:#D3F3EE}
+.pill input:checked+span{background:var(--t);border-color:var(--c);box-shadow:inset 0 0 0 2px var(--c);transform:translateY(-2px)}
+.pill input:checked+span small{color:var(--tx);font-weight:600}
+.pill:hover span{border-color:var(--c)}
+
+/* Errors */
+.msg{display:none;margin-top:10px;color:var(--er);font-size:13px;font-weight:600}
+.q.err .msg{display:block}
+.q.err .fld,.q.err .chip span,.q.err .pill span{border-color:var(--er)}
+.q.err{animation:nudge .3s}
+@keyframes nudge{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* Nav */
+#main{padding-bottom:96px}
+#er{color:var(--er);font-weight:600;margin:14px 0 0;font-size:14px;text-align:center;min-height:1px}
+.nav{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom));width:min(calc(100% - 32px),var(--w,608px));display:flex;gap:10px;padding:8px 8px 10px;background:#fff;border:1px solid var(--ln);border-radius:99px;box-shadow:0 12px 32px rgba(20,24,58,.2);z-index:5}
+.nav .btn{min-height:48px}
+.nav #nx{flex:1}
+.nav #bk{min-width:108px}
+
+/* Done */
+#done{text-align:center;padding:40px 24px}
+.ok{width:64px;height:64px;border-radius:50%;background:#D3F3EE;color:#0F5F57;display:grid;place-items:center;margin:0 auto 16px}
+
+@media(max-width:480px){.hd h1{font-size:25px}.card{padding:18px}.pill small{font-size:11.5px}}
+
+/* Responsif */
+.hd{padding-top:max(14px,env(safe-area-inset-top))}
+.ql div,.hd p,.hp,.chip span{overflow-wrap:anywhere}
+.chip{max-width:100%}
+@media(min-width:768px){
+.wrap{max-width:720px;margin-top:-60px}
+.nav{--w:688px}
+.card{padding:32px}
+.hd{padding-bottom:104px;border-radius:0 0 50%/0 0 56px 56px}
+.hd h1{font-size:36px}
+.hd p{font-size:16px;max-width:520px}
+.pill span{min-height:82px}
+.q{padding:24px 0}
+}
+@media(min-width:1100px){
+.hd{padding-top:24px;padding-bottom:116px;border-radius:0 0 50%/0 0 72px 72px}
+.hd h1{font-size:40px}
+.wrap{margin-top:-68px}
+}
+@media(max-width:560px){
+.chips{gap:8px}
+.chip span{min-height:48px}
+.sc{gap:6px}
+}
+@media(max-width:380px){
+.hd{padding-left:12px;padding-right:12px}
+.hd h1{font-size:22px}
+.hd p{font-size:14px}
+.brand{padding:6px 12px}
+.brand img{height:40px;max-width:190px}
+.wrap{padding-left:12px;padding-right:12px}
+.card{padding:16px;border-radius:20px}
+.sc{grid-template-columns:repeat(2,1fr)}
+.pill span{min-height:60px;flex-direction:row;gap:8px;justify-content:flex-start;padding:8px 12px;text-align:left}
+.nav{width:calc(100% - 24px);gap:6px}
+.nav #bk{min-width:92px}
+.btn{padding:0 16px;font-size:15px}
+}
+@media(max-height:480px) and (orientation:landscape){
+.hd{padding-bottom:70px}
+.hd h1{margin-top:12px;font-size:22px}
+.seg{margin-top:10px}
+#main{padding-bottom:84px}
+.nav{bottom:8px}
+}
+.hd.done{padding-bottom:96px}
+.hd.done+.wrap{margin-top:-40px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hd" id="hd">
+<div class="brand"><img id="lg" alt="Logo BLSDM Komdigi Manado" hidden><span id="lt">BLSDM Komdigi Manado</span></div>
+<h1 id="ht"></h1><p id="hs"></p>
+<div class="seg" id="seg" role="img" hidden></div>
+</header>
+
+<div class="wrap">
+<section id="intro" class="card">
+<button class="btn" id="start" type="button">Mulai survei</button>
+<p class="nt">Jawaban hanya digunakan untuk perbaikan layanan. Isilah sesuai pengalaman Anda, tidak ada jawaban benar atau salah.</p>
+</section>
+
+<div id="main" hidden>
+<div class="card">
+<div class="sp"><div class="bar"><i id="spb"></i></div></div>
+<div id="steps"></div>
+</div>
+<div id="er" role="alert"></div>
+<div class="nav"><button class="btn gh" id="bk" type="button">Kembali</button><button class="btn" id="nx" type="button">Lanjut</button></div>
+</div>
+
+<section id="done" class="card" hidden>
+<div class="ok"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<h2 style="margin:0 0 8px">Terima kasih atas partisipasi Anda</h2>
+<p class="mu" style="font-size:15px;margin:0">Masukan Anda akan kami gunakan untuk meningkatkan layanan BLSDM Komdigi Manado.</p>
+</section>
+</div>
+
+<script>
+/* Tempel link web app Apps Script (berakhiran /exec) di sini */
+var API_URL='https://script.google.com/macros/s/AKfycbzoIjqDjNiS2yCfM8vK8K86xgYTl000E0t7O1O5OoT2-cKHAbkJLltHvz3MiLsT2Hix/exec';
+var LOGO_URL='https://lh3.googleusercontent.com/d/1S2bOpYTCqv1qvHvTs0C8c1kQj_qJAFNO';
+var $=function(i){return document.getElementById(i)};
+(function(){var img=$('lg');
+  img.onload=function(){img.hidden=false;$('lt').hidden=true};
+  img.src=LOGO_URL;
+})();
+var INTRO={t:'Bantu kami melayani lebih baik',d:'Yth. Bapak/Ibu Pengguna Layanan BLSDM Komdigi Manado. Terima kasih telah berkunjung dan menggunakan layanan kami. Survei ini untuk evaluasi internal guna meningkatkan kualitas layanan.'};
+$('ht').textContent=INTRO.t;$('hs').textContent=INTRO.d;
+
+var SC=['Tidak puas','Kurang puas','Puas','Sangat puas'],SA=['Sangat tidak setuju','Kurang setuju','Setuju','Sangat setuju'];
+function R(c,l,s,w){return {t:'rate',c:c,l:l,s:s||SC,w:w}}
+var STEPS=[
+{t:'Data Responden',d:'Beberapa data singkat tentang Anda.',q:[
+{t:'text',l:'Nama'},
+{t:'text',l:'Asal instansi',opt:1},
+{t:'radio',l:'Jenis kelamin',o:['Laki-laki','Perempuan']},
+{t:'radio',l:'Usia',o:['18-29 tahun','30-45 tahun','46-58 tahun','>58 tahun']},
+{t:'radio',l:'Pendidikan terakhir',o:['SD','SMP','SMA','D1/D2/D3','D4/S1','S2','S3'],x:1},
+{t:'radio',l:'Pekerjaan',o:['PNS','TNI/Polri','Swasta','Wiraswasta','Pelajar/Mahasiswa'],x:1},
+{t:'radio',l:'Keperluan kunjungan',o:['Konsultasi atau mencari informasi seputar layanan/pelatihan','Kerja sama (mitra, instansi atau lembaga)','Mengurus administrasi (surat, dokumen atau lainnya)'],x:1}]},
+{t:'Sikap Petugas',d:'Pilih angka 1 (Tidak puas) sampai 4 (Sangat puas).',q:[
+R('C1','Petugas menyambut dan menyapa dengan ramah dan sopan.'),
+R('C2','Petugas bersikap tidak membeda-bedakan pengunjung.'),
+R('C3','Petugas menjelaskan informasi dengan bahasa yang mudah dipahami.'),
+R('C4','Petugas tanggap dan sigap membantu kebutuhan Anda.'),
+R('C5','Petugas berpenampilan rapi dan profesional.')]},
+{t:'Kebersihan',d:'Pilih angka 1 (Tidak puas) sampai 4 (Sangat puas).',q:[
+R('D1','Kebersihan ruang tunggu dan ruang pelayanan.'),
+R('D2','Kebersihan toilet.'),
+R('D3','Kebersihan halaman, area parkir, dan lingkungan kantor.'),
+R('D4','Kebersihan ruang kerja.'),
+R('D5','Kerapian dan penataan ruangan kantor.')]},
+{t:'Fasilitas Kantor',d:'Pilih angka 1 (Tidak puas) sampai 4 (Sangat puas).',q:[
+R('E1','Kenyamanan ruang tunggu.'),
+R('E2','Ketersediaan dan kondisi toilet.'),
+R('E3','Area parkir yang memadai dan aman.'),
+R('E4','Ketersediaan fasilitas (air minum, Wi-Fi, mushola, dll.).'),
+R('E5','Ketersediaan fasilitas bagi penyandang disabilitas, lansia, dan ibu hamil (ramp, kursi prioritas, dll.).')]},
+{t:'Informasi Pelatihan',d:'Seputar informasi pelatihan BLSDM Komdigi Manado.',q:[
+{id:'f1',t:'radio',l:'Apakah Anda pernah mengetahui informasi tentang pelatihan yang diselenggarakan BLSDM Komdigi Manado?',o:['Pernah','Belum pernah']},
+{w:'Pernah',t:'check',l:'Dari mana Anda memperoleh informasi pelatihan yang diselenggarakan BLSDM Komdigi Manado?',h:'Boleh pilih lebih dari satu.',o:['Media sosial BLSDM Komdigi Manado (Instagram / Facebook / YouTube / TikTok / X)','Website resmi (bpsdm.komdigi.go.id/upt/manado)','Papan pengumuman, banner, atau brosur di kantor','Informasi langsung dari petugas','Grup komunitas (WhatsApp atau Telegram)','Teman, keluarga, atau rekan kerja'],x:1},
+R('F3.1','Informasi pelatihan mudah ditemukan.',SA,'Pernah'),
+R('F3.2','Informasi pelatihan jelas dan lengkap (jadwal, persyaratan, cara mendaftar).',SA,'Pernah'),
+{t:'check',l:'Kendala apa yang Anda alami saat mencari informasi pelatihan?',h:'Boleh pilih lebih dari satu.',o:['Tidak ada kendala','Tidak tahu harus mencari di mana','Akun media sosial/website tidak aktif atau jarang diperbarui','Informasi kurang lengkap','Bahasa sulit dipahami','Nomor kontak sulit dihubungi'],x:1},
+{t:'radio',l:'Media apa yang paling Anda harapkan untuk menerima informasi pelatihan?',h:'Pilih satu.',o:['Instagram','Facebook','TikTok','YouTube','WhatsApp','Website','Brosur di kantor'],x:1}]},
+{t:'Masukan dan Saran',d:'Mohon penilaian dan saran dari Bapak/Ibu untuk layanan kami.',q:[
+R('G1','Secara keseluruhan, seberapa puas Anda dengan pelayanan di kantor ini?'),
+{t:'area',l:'Masukan dan saran untuk meningkatkan pelayanan dan penyebaran informasi pelatihan.'}]}
+];
+
+var uid=0,cur=0;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function qh(q){
+  var n='q'+(++uid),b='',o;
+  if(q.t=='text')b='<input class="fld" type="text" autocomplete="off" aria-label="'+esc(q.l)+'">';
+  if(q.t=='area')b='<textarea class="fld" rows="4" aria-label="'+esc(q.l)+'"></textarea>';
+  if(q.t=='radio'||q.t=='check'){
+    var ty=q.t=='radio'?'radio':'checkbox';
+    o=q.x?q.o.concat('Lainnya'):q.o;
+    b='<div class="chips">'+o.map(function(v){return '<label class="chip'+(v=='Tidak ada kendala'?' ex':'')+'"><input type="'+ty+'" name="'+n+'" value="'+esc(v)+'"><span>'+esc(v)+'</span></label>'}).join('')+'</div>';
+    if(q.x)b+='<input class="fld oth" type="text" placeholder="Tuliskan jawaban Anda" aria-label="Jawaban lainnya" hidden>';
+  }
+  if(q.t=='rate')b='<div class="sc">'+q.s.map(function(x,i){return '<label class="pill p'+(i+1)+'"><input type="radio" name="'+n+'" value="'+(i+1)+'"><span><b>'+(i+1)+'</b><small>'+x+'</small></span></label>'}).join('')+'</div>';
+  var k=q.c?q.c+'. '+q.l:q.l;
+  return '<div class="q" role="group" aria-label="'+esc(q.l)+'" data-k="'+esc(k)+'" data-t="'+q.t+'" data-opt="'+(q.opt?1:0)+'"'+(q.id?' data-id="'+q.id+'"':'')+(q.w?' data-w="'+q.w+'"':'')+'><div class="ql"><div>'+esc(q.l)+(q.opt?' <em>(opsional)</em>':'')+'</div></div>'+(q.h?'<p class="hp">'+esc(q.h)+'</p>':'')+b+'<div class="msg">Mohon dijawab.</div></div>';
+}
+$('steps').innerHTML=STEPS.map(function(s){
+  return '<div class="st" hidden>'+s.q.map(qh).join('')+'</div>';
+}).join('');
+var ST=document.querySelectorAll('.st');
+
+function val(q){
+  var t=q.dataset.t;
+  if(t=='text'||t=='area')return q.querySelector('.fld').value.trim();
+  var c=[].slice.call(q.querySelectorAll('input:checked')).map(function(i){return i.value});
+  if(t=='rate')return c[0]?+c[0]:'';
+  var o=q.querySelector('.oth');
+  return c.map(function(v){return v=='Lainnya'?'Lainnya: '+((o&&o.value.trim())||'-'):v}).join('; ');
+}
+function done(q){
+  var o=q.querySelector('.oth');
+  return val(q)!==''&&!(o&&!o.hidden&&!o.value.trim());
+}
+function branch(){
+  var f=document.querySelector('[data-id="f1"]'),v=f?val(f):'';
+  [].forEach.call(document.querySelectorAll('[data-w]'),function(e){e.hidden=(v!=e.dataset.w)});
+}
+function req(){return [].filter.call(ST[cur].querySelectorAll('.q:not([hidden])'),function(q){return q.dataset.opt!='1'})}
+function upd(){
+  var r=req(),n=r.filter(done).length;
+  [].forEach.call(ST[cur].querySelectorAll('.q'),function(q){q.classList.toggle('ans',done(q)&&q.dataset.opt!='1')});
+  $('spb').style.width=(r.length?n/r.length*100:100)+'%';
+  if(n==r.length)$('er').textContent='';
+}
+$('steps').addEventListener('change',function(e){
+  var q=e.target.closest('.q');if(!q)return;
+  if(q.dataset.t=='check'&&e.target.checked){
+    var none=e.target.value=='Tidak ada kendala';
+    [].forEach.call(q.querySelectorAll('input[type=checkbox]'),function(i){if(i!==e.target&&(none||i.value=='Tidak ada kendala'))i.checked=false});
+  }
+  var o=q.querySelector('.oth');
+  if(o){o.hidden=![].some.call(q.querySelectorAll('input:checked'),function(i){return i.value=='Lainnya'});if(!o.hidden)o.focus()}
+  q.classList.remove('err');branch();upd();
+});
+$('steps').addEventListener('input',function(e){var q=e.target.closest('.q');if(q){q.classList.remove('err');upd()}});
+
+function show(i){
+  cur=i;
+  [].forEach.call(ST,function(s,j){s.hidden=j!=i});
+  $('ht').textContent=STEPS[i].t;$('hs').textContent=STEPS[i].d||'';
+  var sg=$('seg');sg.hidden=false;
+  sg.innerHTML=STEPS.map(function(_,j){return '<i'+(j<=i?' class="on"':'')+'></i>'}).join('');
+  sg.setAttribute('aria-label','Langkah '+(i+1)+' dari '+STEPS.length);
+  $('bk').style.display=i?'inline-flex':'none';
+  $('nx').textContent=i==STEPS.length-1?'Kirim survei':'Lanjut';
+  $('er').textContent='';
+  upd();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function valid(){
+  var bad=req().filter(function(q){return !done(q)});
+  bad.forEach(function(q){q.classList.remove('err');void q.offsetWidth;q.classList.add('err')});
+  if(bad.length){
+    $('er').textContent='Masih ada pertanyaan yang belum dijawab.';
+    bad[0].scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  return !bad.length;
+}
+function kirim(){
+  var d={},btn=$('nx'),er=$('er');
+  if(API_URL.indexOf('https://script.google.com/')!==0){
+    er.textContent='Link Apps Script belum diisi. Isi API_URL di bagian atas script.';
+    return;
+  }
+  [].forEach.call(document.querySelectorAll('.q:not([hidden])'),function(q){d[q.dataset.k]=val(q)});
+  btn.disabled=true;btn.textContent='Mengirim...';
+  fetch(API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
+  .then(function(r){return r.json()})
+  .then(function(j){
+    if(!j||!j.ok)throw new Error((j&&j.error)||'Data tidak tersimpan');
+    $('main').hidden=true;
+    $('hd').classList.add('done');
+    $('done').hidden=false;
+    window.scrollTo({top:0});
+  })
+  .catch(function(ex){
+    btn.disabled=false;btn.textContent='Kirim survei';
+    er.textContent='Gagal mengirim: '+(ex&&ex.message?ex.message:'periksa koneksi internet')+'. Silakan coba lagi.';
+  });
+}
+$('start').onclick=function(){
+  $('intro').hidden=true;$('main').hidden=false;
+  branch();show(0);
+};
+$('bk').onclick=function(){if(cur)show(cur-1)};
+$('nx').onclick=function(){
+  if(!valid())return;
+  if(cur<STEPS.length-1)show(cur+1);else kirim();
+};
+</script>
+</body>
+</html>
